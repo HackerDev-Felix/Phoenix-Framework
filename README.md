@@ -12,6 +12,3 @@ Phoenix Framework is an environment for writing, testing and using exploit code.
 
 # 🔑 License
 MIT
-
-# ⭐️Star
-[![Stargazers over time](https://starchart.cc/JustYoomoon/Phoenix-Framework.svg)](https://starchart.cc/JustYoomoon/Phoenix-Framework)
