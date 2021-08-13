@@ -41,6 +41,14 @@ for root,dirs,files in os.walk(dir_scanners):
 
 print("\033[34mNumber of scanners:\033[0m",s_count)
 
+#tools
+dir_tools = pathlib.Path.cwd() / "modules" / "tools"
+s_count = 0
+for root,dirs,files in os.walk(dir_tools):
+    for each in files:
+        s_count += 1
+
+print("\033[34mNumber of tools:\033[0m",s_count)
 class PhoenixShell(cmd.Cmd):
     def __init__(self):
         cmd.Cmd.__init__(self)
