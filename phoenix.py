@@ -142,6 +142,25 @@ class PhoenixShell(cmd.Cmd):
     def do_EOF(self, arg):
         sys.exit(1)
 
+    def do_search(self,arg):
+        search_path = pathlib.Path.cwd() / "modules"
+        for root,dirs,files in os.walk(search_path):
+            for name in files:
+                name_list = []
+                name_list.append(root)
+                name_list.append(name)
+                str ='/'
+                string_list = str.join(name_list)
+                #print(string_list)
+                
+                if arg in string_list:
+                    print("\033[32m[STATUS] Already Found\033[0m")
+                    pass
+
+                    
+                    
+
+        
 def main():
     colorama.init()
     logger.remove(0)
