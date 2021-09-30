@@ -72,9 +72,12 @@ class PhoenixShell(cmd.Cmd):
         module = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(module)
         self.module = module.Module(logger)
-        logger.success("Successfully loaded {}".format(relative_path))
+        tmp_info = relative_path
+        
+        info = str(tmp_info).strip('.py')
+        logger.success("Successfully loaded {}".format(info))
         self.prompt = "{}phoenix2{} ({}{}{}) > ".format(
-            Fore.YELLOW, Style.RESET_ALL, Fore.RED, relative_path, Style.RESET_ALL
+            Fore.YELLOW, Style.RESET_ALL, Fore.RED, info, Style.RESET_ALL
         )
 
     def do_show(self, arg):
@@ -135,11 +138,14 @@ class PhoenixShell(cmd.Cmd):
 
     def do_exit(self, arg):
         "exit the Phoenix shell"
+        os.system("find . -name '*.pyc' -delete")
         sys.exit(1)
     def do_quit(self, arg):
         "exit the Phoenix shell"
+        os.system("find . -name '*.pyc' -delete")
         sys.exit(1)
     def do_EOF(self, arg):
+        os.system("find . -name '*.pyc' -delete")
         sys.exit(1)
 
     def do_search(self,arg):
